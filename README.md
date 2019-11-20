@@ -28,3 +28,12 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## massage_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|massage_id|integer|null: false, foreign_key: true|
+|users_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :massage
+- belongs_to :users
