@@ -2,38 +2,38 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|email|string|null: false|
-|password|string|null: false|
-|nickname|string|null: false|
+|mail|string|index: true, null: false, unique: true|
+|name|string|null: false, unipue: true|
 ### Association
-- has_many :tweets
-- has_many :comments
+ has_many :groups, through: :group_users
+ has_many :group_users
+ has_many :massages
 
 ## massageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text| |
+|body|text|null: false|
 |image|string| |
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|foreign_key: true|
+|user_id|integer|foreign_key: true|
 ### Association
  belongs_to :group
  belongs_to :user
 
-## groups_usersテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|name|string|index: true, null: false, unipue: true|
+### Association
+ has_many :users, through: :group_users
+ has_many :group_users
+ has_many :messages
+
+## group_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|group|integer|index: true, foreign_key: true, null: false|
+|user|integer|index: true, foreign_key: true, null: false|
 ### Association
 - belongs_to :group
 - belongs_to :user
-
-## massage_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|massage_id|integer|null: false, foreign_key: true|
-|users_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :massage
-- belongs_to :users
