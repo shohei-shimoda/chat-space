@@ -1,0 +1,32 @@
+.chatmain
+  .mainheader
+    .mainheader__left
+      .mainheader__left-box-group
+        group name
+      .mainheader__left-box-memberlist
+        Member : 山田 shun
+    .mainheader__btn
+    = link_to "#", class: "mainheader__btn mainheader__btns--icon" do
+      edit
+ 
+  .mainmessages
+    .mainmessages__namedata
+      .mainmessages__name
+        shouya
+      .mainmessages__data
+        2019/10/08/19:14:39
+    .mainmessages__message
+      this is a first message
+  
+  .mainform
+    .mainform__messages
+      %input{:type => "text", :class => "mainform__messages", :placeholder => "type a messages"}/
+      .mainform__example
+  
+      .mainform__picture
+        %label{class: "input-box__image"}
+          = icon('fas', 'image', :class => "input-box__image")
+          %input{:type => "file", :class => "input-box__file"}
+    .mainform__btn
+      = link_to "#", class: "mainform__btn mainform__btn--icon" do
+        Send
