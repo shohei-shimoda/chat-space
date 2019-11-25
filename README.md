@@ -2,38 +2,54 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|mail|string|index: true, null: false, unique: true|
-|name|string|null: false, unipue: true|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
 ### Association
- has_many :groups, through: :group_users
- has_many :group_users
- has_many :massages
+- has_many :tweets
+- has_many :comments
 
 ## massageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text| |
 |image|string| |
-|group_id|integer|foreign_key: true|
-|user_id|integer|foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
  belongs_to :group
  belongs_to :user
 
-## groupsテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|index: true, null: false, unipue: true|
-### Association
- has_many :users, through: :group_users
- has_many :group_users
- has_many :messages
-
-## group_usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|group|integer|index: true, foreign_key: true, null: false|
-|user|integer|index: true, foreign_key: true, null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+<!-- # README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ... --> 
