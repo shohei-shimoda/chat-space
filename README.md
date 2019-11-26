@@ -20,7 +20,7 @@
  belongs_to :group
  belongs_to :user
 
-## groups_usersテーブル
+## group_userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
@@ -28,6 +28,15 @@
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+name|string|index: true, null: false, unipue: true|
+### Association
+has_many :users, through: :group_users 
+has_many :group_users 
+has_many :messages
 
 <!-- # README
 
