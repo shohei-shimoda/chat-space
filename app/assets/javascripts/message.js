@@ -2,7 +2,6 @@ $(function(){
   function buildHTML(message){
     // 「もしメッセージに画像が含まれていたら」という条件式
     if (message.image) {
-      console.log(message.image)
       var html =  `<div class="message">
                     <div class="mainmessages__namedata">
                     <div class="mainmessages__name">
@@ -45,7 +44,6 @@ $(function(){
     e.preventDefault()
     var formData = new FormData(this);
     var url = $(this).attr('action');
-    console.log(this)
     $.ajax({
       url: url,  //同期通信でいう『パス』
       type: 'POST',  //同期通信でいう『HTTPメソッド』
@@ -58,10 +56,8 @@ $(function(){
        var html = buildHTML(message);
        $(".mainmessages").append(html);
        $('.mainmessages').animate({ scrollTop: $('.mainmessages')[0].scrollHeight});
-      //  $('#message_content').val('')
        $('#new_message')[0].reset();
        $('.mainform__btn').prop('disabled', false);
-       console.log(message)
     })
     .fail(function(){
       alert("メッセージ送信に失敗しました");
