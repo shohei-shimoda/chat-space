@@ -38,6 +38,7 @@ $sectioncolor: #ffffff;
   float: left;
   display: block;
   box-sizing: border-box;
+  overflow: scroll;
   &__group {
     color:$sectioncolor;
     font-size:15px;
