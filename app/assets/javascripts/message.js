@@ -39,6 +39,7 @@ $(function(){
     .done(function(message){
        var html = buildHTML(message);
        $(".mainmessages").append(html);
+       console.log(html)
        $('.mainmessages').animate({ scrollTop: $('.mainmessages')[0].scrollHeight});
        $('#new_message')[0].reset();
        $('.mainform__btn').prop('disabled', false);
